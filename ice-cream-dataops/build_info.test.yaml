@@ -5,7 +5,7 @@ modules:
   - name: oee
     location:
       path: modules/bootcamp/use_cases/oee
-      hash: 1be89309
+      hash: 308ecc40
     build_variables:
     - key: icapi_ds_external_id
       value: ds_icapi
@@ -36,6 +36,20 @@ modules:
       is_selected: true
       location: modules/bootcamp/use_cases/oee
     resources:
+      functions:
+      - identifier:
+          externalId: oee_timeseries
+        source:
+          path: /home/user/workspace/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/functions.Function.yaml
+          hash: b4795e39
+        kind: Function
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations every 5 minutes for last hour of data
+        source:
+          path: /home/user/workspace/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.Schedule.yaml
+          hash: 0cc26f4c
+        kind: Schedule
       data_models:
       - identifier:
           space: oee_ts_space
@@ -57,7 +71,6 @@ modules:
           path: /home/user/workspace/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/auth/data_pipeline_oee.Group.yaml
           hash: c3b48e03
         kind: Group
-      functions: []
     warning_count: 0
     status: Success
     iteration: 1
