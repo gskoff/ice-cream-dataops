@@ -1,0 +1,3 @@
+externalId: wf_icapi_data_pipeline
+name: ICAPI Data Pipeline
+description: A data workflow pipeline to run transformation and function steps in the proper order
